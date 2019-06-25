@@ -1,0 +1,11 @@
+version: "3"
+services:
+    kibana:
+        image: kibana:7.1.0
+        container_name: kibana
+        environment:
+            - ELASTICSEARCH_HOSTS=http://${ES_TRIBE_HOST}:9204 # connect the es-balance node
+            - I18N_LOCALE=zh-CN
+        ports:
+            - "5601:5601"
+        network_mode: "host"
